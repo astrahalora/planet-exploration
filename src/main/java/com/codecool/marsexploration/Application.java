@@ -20,7 +20,8 @@ public class Application {
         boolean isValid = validator.validate(mapConfig);
         System.out.println(isValid);
 
-//        DimensionCalculator dimensionCalculator = null;
+        DimensionCalculator dimensionCalculator = new DimensionCalculatorImpl();
+        dimensionCalculator.calculateDimension(20,3);
 //        CoordinateCalculator coordinateCalculator = null;
 //
 //        MapElementBuilder mapElementFactory = null;
