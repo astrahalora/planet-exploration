@@ -5,7 +5,6 @@ import com.codecool.marsexploration.configuration.model.MapConfiguration;
 import com.codecool.marsexploration.configuration.model.MapElementConfiguration;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class MapConfigurationValidatorImpl implements MapConfigurationValidator {
     public boolean validate(MapConfiguration mapConfig) {
@@ -27,7 +26,7 @@ public class MapConfigurationValidatorImpl implements MapConfigurationValidator 
                 && hasCorrectDimensionalGrowth(configElements, "&", 10)
                 && hasCorrectDimensionalGrowth(configElements, "%", 0)
                 && hasCorrectDimensionalGrowth(configElements, "*", 0)
-                && elementsFitIntoMap(configElements);
+                && elementsFitIntoMap(configElements, mapConfig.mapSize(), mapConfig.elementToSpaceRatio());
     }
 
     private boolean hasElementWithSymbol(List<MapElementConfiguration> elementConfigurationList, String symbol) {
@@ -59,27 +58,21 @@ public class MapConfigurationValidatorImpl implements MapConfigurationValidator 
                 .allMatch(element -> element.dimensionGrowth() == growth);
     }
 
-    private boolean elementsFitIntoMap(List<MapElementConfiguration> elementConfigurationList) {
+    private boolean elementsFitIntoMap(List<MapElementConfiguration> elementConfigurationList, int mapSize, double elementToSpaceRatio) {
         int totalOcuppiedSpace = 0;
         for (MapElementConfiguration elementConfiguration : elementConfigurationList) {
             for (ElementToSize elementToSize : elementConfiguration.elementToSizes()) {
-                totalOcuppiedSpace += calculateDimension(elementToSize.size(), elementConfiguration.dimensionGrowth());
+                totalOcuppiedSpace += calculateDimension(elementToSize.size()) * elementToSize.elementCount();
             }
         }
-        System.out.println(totalOcuppiedSpace);
-        return true;
+        return totalOcuppiedSpace < mapSize * elementToSpaceRatio;
     }
 
-    private int calculateDimension(int dimension, int growth) {
-        System.out.println("dimension: " + dimension);
-        System.out.println("growth: " + growth);
-//        System.out.println((int) Math.sqrt(dimension) + 1);
-        if(growth == 0) {
-            return 1;
+    private int calculateDimension(int dimension) {
+        if(dimension == 1) {
+            return dimension;
         } else {
-            return (int) Math.pow((int) Math.sqrt(dimension) + 1 + growth, 2);
+            return (int) Math.pow((int) Math.sqrt(dimension) + 1, 2);
         }
-//        System.out.println((int) Math.pow((int) Math.sqrt(dimension) + 1 + growth, 2));
-
     }
 }
