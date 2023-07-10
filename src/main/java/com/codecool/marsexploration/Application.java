@@ -22,7 +22,8 @@ public class Application {
 
         DimensionCalculator dimensionCalculator = new DimensionCalculatorImpl();
         dimensionCalculator.calculateDimension(20,3);
-//        CoordinateCalculator coordinateCalculator = null;
+        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapConfig);
+        System.out.println(coordinateCalculator.getRandomCoordinate(dimensionCalculator.calculateDimension(20,3)));
 //
 //        MapElementBuilder mapElementFactory = null;
 //        MapElementsGenerator mapElementsGenerator = null;
