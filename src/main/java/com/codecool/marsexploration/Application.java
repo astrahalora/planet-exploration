@@ -16,21 +16,24 @@ public class Application {
     public static void main(String[] args) {
         System.out.println("Mars Exploration Sprint 1");
         MapConfiguration mapConfig = getConfiguration();
+        MapConfigurationValidator validator = new MapConfigurationValidatorImpl();
+        boolean isValid = validator.validate(mapConfig);
+        System.out.println(isValid);
 
-        DimensionCalculator dimensionCalculator = null;
-        CoordinateCalculator coordinateCalculator = null;
-
-        MapElementBuilder mapElementFactory = null;
-        MapElementsGenerator mapElementsGenerator = null;
-
-        MapConfigurationValidator mapConfigValidator = null;
-        MapElementPlacer mapElementPlacer = null;
-
-        MapGenerator mapGenerator = null;
-
-        createAndWriteMaps(3, mapGenerator, mapConfig);
-
-        System.out.println("Mars maps successfully generated.");
+//        DimensionCalculator dimensionCalculator = null;
+//        CoordinateCalculator coordinateCalculator = null;
+//
+//        MapElementBuilder mapElementFactory = null;
+//        MapElementsGenerator mapElementsGenerator = null;
+//
+//        MapConfigurationValidator mapConfigValidator = null;
+//        MapElementPlacer mapElementPlacer = null;
+//
+//        MapGenerator mapGenerator = null;
+//
+//        createAndWriteMaps(3, mapGenerator, mapConfig);
+//
+//        System.out.println("Mars maps successfully generated.");
     }
 
     private static void createAndWriteMaps(int count, MapGenerator mapGenerator, MapConfiguration mapConfig) {
@@ -53,7 +56,38 @@ public class Application {
                 ""
         );
 
-        List<MapElementConfiguration> elementsCfg = List.of(mountainsCfg);
+        MapElementConfiguration pitsCfg = new MapElementConfiguration(
+                pitSymbol,
+                "pit",
+                List.of(
+                        new ElementToSize(2, 10),
+                        new ElementToSize(1, 20)
+                ),
+                10,
+                ""
+        );
+
+        MapElementConfiguration mineralsCfg = new MapElementConfiguration(
+                mineralSymbol,
+                "mineral",
+                List.of(
+                        new ElementToSize(10, 1)
+                ),
+                0,
+                mountainSymbol
+        );
+
+        MapElementConfiguration pocketsOfWaterCfg = new MapElementConfiguration(
+                waterSymbol,
+                "water",
+                List.of(
+                        new ElementToSize(10, 1)
+                ),
+                0,
+                pitSymbol
+        );
+
+        List<MapElementConfiguration> elementsCfg = List.of(mountainsCfg, pitsCfg, mineralsCfg, pocketsOfWaterCfg);
         return new MapConfiguration(1000, 0.5, elementsCfg);
     }
 }
