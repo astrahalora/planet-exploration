@@ -18,12 +18,22 @@ public class Map {
     }
 
     private static String createStringRepresentation(String[][] arr) {
-        return "";
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String[] innerArr : arr) {
+            for (String element : innerArr){
+                stringBuilder.append(element);
+            }
+        }
+        return stringBuilder.toString();
     }
 
     @Override
     public String toString() {
         return createStringRepresentation(representation);
+    }
+
+    public String[][] getRepresentation() {
+        return representation;
     }
 }
 
