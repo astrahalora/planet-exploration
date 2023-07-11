@@ -26,6 +26,9 @@ public class Application {
         DimensionCalculator dimensionCalculator = new DimensionCalculatorImpl();
         dimensionCalculator.calculateDimension(20,3);
         CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapConfig);
+        Coordinate randomFirstCorner = coordinateCalculator.getRandomCoordinate(8);
+        System.out.println(coordinateCalculator.getAdjacentCoordinates(randomFirstCorner,8));
+        System.out.println(coordinateCalculator.getAdjacentCoordinates(coordinateCalculator.getAdjacentCoordinates(randomFirstCorner,8),8));
         Coordinate startCoordinate = coordinateCalculator.getRandomCoordinate(dimensionCalculator.calculateDimension(20,3));
 
         int rows = mapConfig.mapSize();
