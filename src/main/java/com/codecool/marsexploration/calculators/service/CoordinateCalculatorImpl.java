@@ -4,6 +4,7 @@ import com.codecool.marsexploration.calculators.model.Coordinate;
 import com.codecool.marsexploration.configuration.model.MapConfiguration;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class CoordinateCalculatorImpl implements CoordinateCalculator{
@@ -31,7 +32,17 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator{
 
     @Override
     public Iterable<Coordinate> getAdjacentCoordinates(Iterable<Coordinate> coordinates, int dimension) {
-        ArrayList<Coordinate> elementOccupiedSpace = (ArrayList<Coordinate>) coordinates;
+//        ArrayList<Coordinate> elementOccupiedSpace = (ArrayList<Coordinate>) coordinates;
+//        Coordinate firstCoordinate = elementOccupiedSpace.get(0);
+//        int xStart = firstCoordinate.x() - 1;
+//        int yStart = firstCoordinate.y() - 1;
+//        int xFinal = xStart + dimension + 2;
+//        int yFinal = yStart + dimension + 2;
+//        return getCoordinates(xStart, yStart, xFinal, yFinal);
+        List<Coordinate> elementOccupiedSpace = new ArrayList<>();
+        for (Coordinate coordinate : coordinates) {
+            elementOccupiedSpace.add(coordinate);
+        }
         Coordinate firstCoordinate = elementOccupiedSpace.get(0);
         int xStart = firstCoordinate.x() - 1;
         int yStart = firstCoordinate.y() - 1;
