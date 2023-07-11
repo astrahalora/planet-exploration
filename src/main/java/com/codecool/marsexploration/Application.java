@@ -1,5 +1,6 @@
 package com.codecool.marsexploration;
 
+import com.codecool.marsexploration.calculators.model.Coordinate;
 import com.codecool.marsexploration.calculators.service.*;
 import com.codecool.marsexploration.configuration.model.*;
 import com.codecool.marsexploration.configuration.service.*;
@@ -23,8 +24,8 @@ public class Application {
         DimensionCalculator dimensionCalculator = new DimensionCalculatorImpl();
         dimensionCalculator.calculateDimension(20,3);
         CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapConfig);
-        System.out.println(coordinateCalculator.getRandomCoordinate(dimensionCalculator.calculateDimension(20,3)));
-//
+        Coordinate startCoordinate = coordinateCalculator.getRandomCoordinate(dimensionCalculator.calculateDimension(20,3));
+        System.out.println(coordinateCalculator.getAdjacentCoordinates(startCoordinate,8));
 //        MapElementBuilder mapElementFactory = null;
 //        MapElementsGenerator mapElementsGenerator = null;
 //

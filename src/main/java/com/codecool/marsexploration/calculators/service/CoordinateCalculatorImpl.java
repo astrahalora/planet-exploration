@@ -3,6 +3,8 @@ package com.codecool.marsexploration.calculators.service;
 import com.codecool.marsexploration.calculators.model.Coordinate;
 import com.codecool.marsexploration.configuration.model.MapConfiguration;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class CoordinateCalculatorImpl implements CoordinateCalculator{
@@ -21,11 +23,19 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator{
 
     @Override
     public Iterable<Coordinate> getAdjacentCoordinates(Coordinate coordinate, int dimension) {
-        return null;
+        int xStart = coordinate.x();
+        int yStart = coordinate.y();
+        int xFinal = xStart + dimension;
+        int yFinal = yStart + dimension;
+        Coordinate finalCoordinate = new Coordinate(xFinal,yFinal);
+        Iterable<Coordinate> elementOccupiedSpace = List.of(coordinate,finalCoordinate);
+        return elementOccupiedSpace;
     }
 
     @Override
     public Iterable<Coordinate> getAdjacentCoordinates(Iterable<Coordinate> coordinates, int dimension) {
         return null;
     }
+
+
 }
