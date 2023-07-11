@@ -37,5 +37,4 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator{
         return null;
     }
 
-
 }

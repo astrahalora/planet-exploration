@@ -4,10 +4,12 @@ import com.codecool.marsexploration.calculators.model.Coordinate;
 import com.codecool.marsexploration.calculators.service.*;
 import com.codecool.marsexploration.configuration.model.*;
 import com.codecool.marsexploration.configuration.service.*;
+import com.codecool.marsexploration.mapelements.model.Map;
 import com.codecool.marsexploration.mapelements.service.builder.*;
 import com.codecool.marsexploration.mapelements.service.generator.*;
 import com.codecool.marsexploration.mapelements.service.placer.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Application {
@@ -25,8 +27,18 @@ public class Application {
         dimensionCalculator.calculateDimension(20,3);
         CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapConfig);
         Coordinate startCoordinate = coordinateCalculator.getRandomCoordinate(dimensionCalculator.calculateDimension(20,3));
-        System.out.println(coordinateCalculator.getAdjacentCoordinates(startCoordinate,8));
-//        MapElementBuilder mapElementFactory = null;
+
+        int rows = mapConfig.mapSize();
+        int columns = mapConfig.mapSize();
+        String[][] firstMap = createEmptyStringArray(rows, columns);
+        Map map = new Map(firstMap);
+
+        System.out.println(map.toString());
+
+//        System.out.println(coordinateCalculator.getAdjacentCoordinates(startCoordinate,8));
+
+//        MapElementBuilder mapElementFactory = new MapElementBuilderImpl(map, coordinateCalculator, dimensionCalculator);
+//        System.out.println(mapElementFactory.build(1, "*", "mineral", 0, "#"));
 //        MapElementsGenerator mapElementsGenerator = null;
 //
 //        MapConfigurationValidator mapConfigValidator = null;
@@ -92,6 +104,18 @@ public class Application {
 
         List<MapElementConfiguration> elementsCfg = List.of(mountainsCfg, pitsCfg, mineralsCfg, pocketsOfWaterCfg);
         return new MapConfiguration(1000, 0.5, elementsCfg);
+    }
+
+    public static String[][] createEmptyStringArray(int rows, int columns) {
+        String[][] array = new String[rows][columns];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                array[i][j] = "";
+            }
+        }
+
+        return array;
     }
 }
 

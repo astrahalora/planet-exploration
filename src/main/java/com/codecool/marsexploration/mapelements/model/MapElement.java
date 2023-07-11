@@ -15,11 +15,17 @@ public class MapElement extends Map {
         this.name = name;
         this.dimension = dimension;
         this.preferredLocationSymbol = preferredLocationSymbol;
+        this.representation = representation;
     }
 
     @Override
     public String toString() {
         return super.toString();
+    }
+
+    @Override
+    public String[][] getRepresentation() {
+        return representation;
     }
 }
 
