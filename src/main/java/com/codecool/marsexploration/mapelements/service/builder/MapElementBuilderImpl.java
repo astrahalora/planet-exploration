@@ -2,6 +2,8 @@ package com.codecool.marsexploration.mapelements.service.builder;
 
 import com.codecool.marsexploration.calculators.service.DimensionCalculator;
 import com.codecool.marsexploration.mapelements.model.MapElement;
+
+import java.util.Arrays;
 import java.util.Random;
 
 public class MapElementBuilderImpl implements MapElementBuilder{
