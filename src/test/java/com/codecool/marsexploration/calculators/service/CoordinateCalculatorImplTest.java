@@ -1,15 +1,12 @@
 package com.codecool.marsexploration.calculators.service;
 
 import com.codecool.marsexploration.calculators.model.Coordinate;
-import com.codecool.marsexploration.calculators.service.CoordinateCalculator;
-import com.codecool.marsexploration.calculators.service.CoordinateCalculatorImpl;
 import com.codecool.marsexploration.configuration.model.MapConfiguration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
 import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -44,6 +41,16 @@ public class CoordinateCalculatorImplTest {
         Iterable<Coordinate> adjacentCoordinates = coordinateCalculator.getAdjacentCoordinates(coordinate, dimension);
 
         assertEquals(9, getCoordinateListSize(adjacentCoordinates));
+    }
+
+    @Test
+    public void testWithDimension1ForGetAdjacentCoordinates() {
+        Coordinate coordinate = new Coordinate(3, 4);
+        int dimension = 1;
+
+        Iterable<Coordinate> adjacentCoordinates = coordinateCalculator.getAdjacentCoordinates(coordinate, dimension);
+
+        assertEquals(1, getCoordinateListSize(adjacentCoordinates));
     }
 
     @Test
