@@ -27,5 +27,17 @@ public class MapElement extends Map {
     public String[][] getRepresentation() {
         return representation;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getDimension() {
+        return dimension;
+    }
+
+    public String getPreferredLocationSymbol() {
+        return preferredLocationSymbol;
+    }
 }
 
