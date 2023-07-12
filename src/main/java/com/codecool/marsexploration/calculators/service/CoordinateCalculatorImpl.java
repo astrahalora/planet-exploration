@@ -17,8 +17,8 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator{
     @Override
     public Coordinate getRandomCoordinate(int dimension) {
         Random random = new Random();
-        Coordinate coordinate = new Coordinate(random.nextInt(mapConfiguration.mapSize() - dimension),
-                                random.nextInt(mapConfiguration.mapSize() - dimension));
+        Coordinate coordinate = new Coordinate(random.nextInt(33 - dimension),
+                                random.nextInt(33 - dimension));
         return coordinate;
     }
 

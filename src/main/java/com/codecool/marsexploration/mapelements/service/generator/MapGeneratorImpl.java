@@ -36,14 +36,14 @@ public class MapGeneratorImpl implements MapGenerator{
 //        return null;
 //    }
 public Map generate(MapConfiguration mapConfig) {
-    String[][] mapToFill = createEmptyStringArray(mapConfig.mapSize(), mapConfig.mapSize());
+    String[][] mapToFill = createEmptyStringArray(33, 33);
     List<MapElement> mapElements = (List<MapElement>) mapElementsGenerator.createAll(mapConfig);
     for (MapElement mapElement : mapElements) {
         Coordinate randoCoordinate = coordinateCalculator.getRandomCoordinate(mapElement.getDimension());
-//        while(!mapElementPlacer.canPlaceElement(mapElement, mapToFill, randoCoordinate)) {
-//            System.out.println("Trying config...");
-//            randoCoordinate = coordinateCalculator.getRandomCoordinate(mapElement.getDimension());
-//        }
+        while(!mapElementPlacer.canPlaceElement(mapElement, mapToFill, randoCoordinate)) {
+            System.out.println("Trying config...");
+            randoCoordinate = coordinateCalculator.getRandomCoordinate(mapElement.getDimension());
+        }
         mapElementPlacer.placeElement(mapElement, mapToFill, randoCoordinate);
     }
 
