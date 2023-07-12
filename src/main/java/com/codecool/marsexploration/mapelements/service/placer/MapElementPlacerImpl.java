@@ -52,6 +52,6 @@ public class MapElementPlacerImpl implements MapElementPlacer {
                 map[coordinate.x()+i][coordinate.y()+j] = elementRepresentation[i][j];
             }
         }
-        System.out.println(Arrays.deepToString(map));
+//        System.out.println(Arrays.deepToString(map));
     }
 }
