@@ -39,6 +39,7 @@ public Map generate(MapConfiguration mapConfig) {
     int mapSize = (int) Math.ceil((Math.sqrt(mapConfig.mapSize())));
     String[][] mapToFill = createEmptyStringArray(mapSize, mapSize);
     List<MapElement> mapElements = (List<MapElement>) mapElementsGenerator.createAll(mapConfig);
+
     for (MapElement mapElement : mapElements) {
         Coordinate randoCoordinate = coordinateCalculator.getRandomCoordinate(mapElement.getDimension());
         while(!mapElementPlacer.canPlaceElement(mapElement, mapToFill, randoCoordinate)) {

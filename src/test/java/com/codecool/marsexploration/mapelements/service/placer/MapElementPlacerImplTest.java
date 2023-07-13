@@ -23,7 +23,7 @@ class MapElementPlacerImplTest {
 
     @Test
     void canPlaceElement_returnsTrue_forEmptyMap() {
-        String[][] map = createEmptyStringArray(1000, 1000, "empty");
+        String[][] map = createEmptyStringArray(33, 33, "empty");
         MapElementBuilder mapElementBuilder = new MapElementBuilderImpl(dimensionCalculator);
         MapElement mountain = mapElementBuilder.build(20, "#", "mountain", 3, "");
         MapElementPlacer mapElementPlacer = new MapElementPlacerImpl(coordinateCalculator);
@@ -34,7 +34,7 @@ class MapElementPlacerImplTest {
 
     @Test
     void canPlaceElement_returnsFalse_forFullMap() {
-        String[][] map = createEmptyStringArray(1000, 1000, "full");
+        String[][] map = createEmptyStringArray(32, 32, "full");
         MapElementBuilder mapElementBuilder = new MapElementBuilderImpl(dimensionCalculator);
         MapElement mountain = mapElementBuilder.build(20, "#", "mountain", 3, "");
         MapElementPlacer mapElementPlacer = new MapElementPlacerImpl(coordinateCalculator);
@@ -45,7 +45,7 @@ class MapElementPlacerImplTest {
 
     @Test
     void placeElement_placesAMountain() {
-        String[][] map = createEmptyStringArray(100, 100, "empty");
+        String[][] map = createEmptyStringArray(32, 32, "empty");
         MapElementBuilder mapElementBuilder = new MapElementBuilderImpl(dimensionCalculator);
         MapElement mountain = mapElementBuilder.build(20, "#", "mountain", 3, "");
         MapElementPlacer mapElementPlacer = new MapElementPlacerImpl(coordinateCalculator);
