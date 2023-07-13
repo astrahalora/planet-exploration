@@ -17,15 +17,28 @@ public class Map {
         this.successfullyGenerated = successfullyGenerated;
     }
 
-    private static String createStringRepresentation(String[][] arr) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (String[] innerArr : arr) {
-            for (String element : innerArr){
+//    private static String createStringRepresentation(String[][] arr) {
+//        StringBuilder stringBuilder = new StringBuilder();
+//        for (String[] innerArr : arr) {
+//            for (String element : innerArr){
+//                stringBuilder.append(element);
+//            }
+//        }
+//        return stringBuilder.toString();
+//    }
+private static String createStringRepresentation(String[][] arr) {
+    StringBuilder stringBuilder = new StringBuilder();
+    for (String[] innerArr : arr) {
+        for (String element : innerArr){
+            if (!element.isEmpty()) {
                 stringBuilder.append(element);
+            }else{
+                stringBuilder.append(" ");
             }
         }
-        return stringBuilder.toString();
     }
+    return stringBuilder.toString();
+}
 
     @Override
     public String toString() {
