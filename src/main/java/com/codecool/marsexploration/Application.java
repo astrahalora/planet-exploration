@@ -28,6 +28,7 @@ public class Application {
         DimensionCalculator dimensionCalculator = new DimensionCalculatorImpl();
         CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapConfig);
 
+
         int rows = mapConfig.mapSize();
         int columns = mapConfig.mapSize();
         String[][] firstMap = createEmptyStringArray(rows, columns);
@@ -40,7 +41,7 @@ public class Application {
 
         MapElementBuilder mapElementFactory = new MapElementBuilderImpl(dimensionCalculator);
 
-        MapElementsGenerator mapElementsGenerator = new MapElementsGeneratorImpl(mapElementFactory);
+        MapElementsGenerator mapElementsGenerator = new MapElementsGeneratorImpl(mapElementFactory,dimensionCalculator);
         System.out.println(mapElementsGenerator.createAll(mapConfig));
 
         MapConfigurationValidator mapConfigValidator = new MapConfigurationValidatorImpl();

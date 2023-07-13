@@ -24,7 +24,15 @@ public class MapElementPlacerImpl implements MapElementPlacer {
 //        return checkForPreferredSymbolAndEmptySpaceAvailability(coordinates, coordinate, map, element.getPreferredLocationSymbol());
 //    }
         public boolean canPlaceElement(MapElement element, String[][] map, Coordinate coordinate){
-            return true;
+        List<Coordinate> elementShape = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinate, element.getDimension());
+        System.out.println("element shape: " + elementShape);
+        int emptySpaces = 0;
+        for( Coordinate coord : elementShape){
+            if(map[coord.x()][coord.y()].equals("")){
+                emptySpaces += 1;
+            }
+        }
+        return getNumberOfSymbolsFromRepresentation(element) < emptySpaces ;
         }
 
 
@@ -49,12 +57,28 @@ public class MapElementPlacerImpl implements MapElementPlacer {
     }
 
     public void placeElement(MapElement element, String[][] map, Coordinate coordinate) {
+        canPlaceElement(element,map,coordinate);
         String[][] elementRepresentation = element.getRepresentation();
+        System.out.println(coordinate);
+        System.out.println("dimension " + element.getDimension());
         for (int i = 0; i < elementRepresentation.length; i++) {
             for (int j = 0; j < elementRepresentation[i].length; j++) {
-                map[coordinate.x()+i][coordinate.y()+j] = elementRepresentation[i][j];
+                System.out.println("x " + (coordinate.x() + i));
+                System.out.println("y " + (coordinate.y() + j));
+                map[coordinate.x() + i][coordinate.y() + j ] = elementRepresentation[i][j];
             }
         }
 //        System.out.println(Arrays.deepToString(map));
+    }
+    private int getNumberOfSymbolsFromRepresentation(MapElement element){
+        int occupiedSpaces = 0;
+        for (int i = 0; i < element.getRepresentation().length; i++) {
+            for (int j = 0; j < element.getRepresentation()[i].length; j++) {
+                if(!element.getRepresentation()[i][j].equals("")){
+                    occupiedSpaces += 1;
+                }
+            }
+        }
+        return occupiedSpaces;
     }
 }
