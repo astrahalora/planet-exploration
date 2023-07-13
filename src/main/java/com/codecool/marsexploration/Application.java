@@ -33,31 +33,31 @@ public class Application {
 //        System.out.println(coordinateCalculator.getAdjacentCoordinates(coordinateCalculator.getAdjacentCoordinates(randomFirstCorner,8),8));
 //        Coordinate startCoordinate = coordinateCalculator.getRandomCoordinate(dimensionCalculator.calculateDimension(20,3));
 
-        int rows = mapConfig.mapSize();
-        int columns = mapConfig.mapSize();
-        String[][] firstMap = createEmptyStringArray(rows, columns);
-        Map map = new Map(firstMap);
-
-        System.out.println(map.toString());
+//        int rows = mapConfig.mapSize();
+//        int columns = mapConfig.mapSize();
+//        String[][] firstMap = createEmptyStringArray(rows, columns);
+//        Map map = new Map(firstMap);
+//
+//        System.out.println(map.toString());
 
 
 
 //        System.out.println(coordinateCalculator.getAdjacentCoordinates(startCoordinate,8));
-
-        MapElementBuilder mapElementFactory = new MapElementBuilderImpl(dimensionCalculator);
-
-        MapElementsGenerator mapElementsGenerator = new MapElementsGeneratorImpl(mapElementFactory);
-
-        MapConfigurationValidator mapConfigValidator = new MapConfigurationValidatorImpl();
-        MapElementPlacer mapElementPlacer = new MapElementPlacerImpl(coordinateCalculator);
-
-        MapGenerator mapGenerator = new MapGeneratorImpl(mapElementsGenerator, mapElementPlacer, coordinateCalculator);
-
-        MapFileWriter mapFileWriter = new MapFileWriterImpl();
-
-        String workDir = "src/main/resources/exploration-test.map";
-
-        mapFileWriter.writeMapFile(mapGenerator.generate(mapConfig), workDir);
+//
+//        MapElementBuilder mapElementFactory = new MapElementBuilderImpl(dimensionCalculator);
+//
+//        MapElementsGenerator mapElementsGenerator = new MapElementsGeneratorImpl(mapElementFactory);
+//
+//        MapConfigurationValidator mapConfigValidator = new MapConfigurationValidatorImpl();
+//        MapElementPlacer mapElementPlacer = new MapElementPlacerImpl(coordinateCalculator);
+//
+//        MapGenerator mapGenerator = new MapGeneratorImpl(mapElementsGenerator, mapElementPlacer, coordinateCalculator);
+//
+//        MapFileWriter mapFileWriter = new MapFileWriterImpl();
+//
+//        String workDir = "src/main/resources/exploration-test.map";
+//
+//        mapFileWriter.writeMapFile(mapGenerator.generate(mapConfig), workDir);
 
 //        createAndWriteMaps(3, mapGenerator, mapConfig);
 
