@@ -3,6 +3,7 @@ package com.codecool.marsexploration.mapelements.service.builder;
 import com.codecool.marsexploration.calculators.service.DimensionCalculator;
 import com.codecool.marsexploration.mapelements.model.MapElement;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class MapElementBuilderImpl implements MapElementBuilder{
@@ -16,7 +17,6 @@ public class MapElementBuilderImpl implements MapElementBuilder{
     public MapElement build(int size, String symbol, String name, int dimensionGrowth, String preferredLocationSymbol) {
         int squareSide = dimensionCalculator.calculateDimension(size, dimensionGrowth);
         String[][] elementSpace = createEmptyStringArray(squareSide, squareSide);
-
 
         if (preferredLocationSymbol.equals("")){
             return new MapElement(
