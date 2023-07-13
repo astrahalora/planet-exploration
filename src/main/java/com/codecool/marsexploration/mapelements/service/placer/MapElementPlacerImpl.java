@@ -4,7 +4,6 @@ import com.codecool.marsexploration.calculators.model.Coordinate;
 import com.codecool.marsexploration.calculators.service.CoordinateCalculator;
 import com.codecool.marsexploration.mapelements.model.MapElement;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class MapElementPlacerImpl implements MapElementPlacer {
@@ -14,16 +13,20 @@ public class MapElementPlacerImpl implements MapElementPlacer {
         this.coordinateCalculator = coordinateCalculator;
     }
 
-    public boolean canPlaceElement(MapElement element, String[][] map, Coordinate coordinate) {
-        Iterable<Coordinate> coordinates = List.of(
-                new Coordinate(coordinate.x(), coordinate.y())
-        );
-        List<Coordinate> elementShape = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinates, element.getDimension());
-        if(element.getPreferredLocationSymbol() == null) {
-            return checkForEmptySpaces(elementShape, map);
+//    public boolean canPlaceElement(MapElement element, String[][] map, Coordinate coordinate) {
+//        Iterable<Coordinate> coordinates = List.of(
+//                new Coordinate(coordinate.x(), coordinate.y())
+//        );
+//        List<Coordinate> elementShape = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinates, element.getDimension());
+//        if(element.getPreferredLocationSymbol() == null) {
+//            return checkForEmptySpaces(elementShape, map);
+//        }
+//        return checkForPreferredSymbolAndEmptySpaceAvailability(coordinates, coordinate, map, element.getPreferredLocationSymbol());
+//    }
+        public boolean canPlaceElement(MapElement element, String[][] map, Coordinate coordinate){
+            return true;
         }
-        return checkForPreferredSymbolAndEmptySpaceAvailability(coordinates, coordinate, map, element.getPreferredLocationSymbol());
-    }
+
 
     private boolean checkForEmptySpaces(List<Coordinate> elementShape, String[][] map) {
         for (Coordinate coordinate : elementShape) {

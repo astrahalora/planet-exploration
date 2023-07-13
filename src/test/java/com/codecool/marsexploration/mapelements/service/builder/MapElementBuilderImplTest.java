@@ -23,8 +23,8 @@ class MapElementBuilderImplTest {
         MapElement mapElement = mapElementFactory.build(mountainSize, "#", "mountain", 3, "");
         MapElement mapElement1 = mapElementFactory.build(mineralSize, "%", "mineral", 1, "#");
 
-        assertEquals(mapElement.toString().length(), mountainSize);
-        assertEquals(mapElement1.toString().length(), mineralSize);
+        assertEquals(mapElement.toString().replaceAll(" ", "").length(), mountainSize);
+        assertEquals(mapElement1.toString().replaceAll(" ", "").length(), mineralSize);
     }
 
     @Test

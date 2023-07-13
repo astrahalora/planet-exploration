@@ -22,7 +22,7 @@ public class MapElementsGeneratorImpl implements MapElementsGenerator{
             for (int i = 0; i < mapElementConfiguration.elementToSizes().size(); i++) {
                 for (int j = 0; j < mapElementConfiguration.elementToSizes().get(i).elementCount(); j++) {
                     MapElement mapElement = mapElementBuilder.build(
-                            mapElementConfiguration.elementToSizes().size(),
+                            mapElementConfiguration.elementToSizes().get(i).size(),
                             mapElementConfiguration.symbol(),
                             mapElementConfiguration.name(),
                             mapElementConfiguration.dimensionGrowth(),
