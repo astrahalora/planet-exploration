@@ -14,16 +14,6 @@ public class MapElementPlacerImpl implements MapElementPlacer {
         this.coordinateCalculator = coordinateCalculator;
     }
 
-    //    public boolean canPlaceElement(MapElement element, String[][] map, Coordinate coordinate) {
-//        Iterable<Coordinate> coordinates = List.of(
-//                new Coordinate(coordinate.x(), coordinate.y())
-//        );
-//        List<Coordinate> elementShape = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinates, element.getDimension());
-//        if(element.getPreferredLocationSymbol() == null) {
-//            return checkForEmptySpaces(elementShape, map);
-//        }
-//        return checkForPreferredSymbolAndEmptySpaceAvailability(coordinates, coordinate, map, element.getPreferredLocationSymbol());
-//    }
     public boolean canPlaceElement(MapElement element, String[][] map, Coordinate coordinate) {
 //        System.out.println(element.getName() + coordinateCalculator.getAdjacentCoordinates(coordinate, element.getDimension()));
 
@@ -52,21 +42,20 @@ public class MapElementPlacerImpl implements MapElementPlacer {
     }
 
     private boolean checkForPreferredSymbolAndEmptySpaceAvailability(MapElement element, Coordinate coordinate, String[][] map, String preferredSymbol) {
-
         Iterable<Coordinate> coordinates = List.of(
                 new Coordinate(coordinate.x(), coordinate.y())
         );
 
         List<Coordinate> elementShape = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinates, element.getDimension());
+
         if (map[coordinate.x()][coordinate.y()].equals("")) {
             for (Coordinate coord : elementShape) {
-                System.out.println(element.getName());
-                System.out.println("cord" + coord);
                 if (map[coord.x()][coord.y()].equals(preferredSymbol)) {
                     return true;
                 }
             }
         }
+
         return false;
     }
 
