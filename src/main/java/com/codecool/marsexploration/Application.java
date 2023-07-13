@@ -34,10 +34,6 @@ public class Application {
         String[][] firstMap = createEmptyStringArray(rows, columns);
         Map map = new Map(firstMap);
 
-//        System.out.println(map.toString());
-
-
-       // System.out.println(coordinateCalculator.getAdjacentCoordinates(startCoordinate,8));
 
         MapElementBuilder mapElementFactory = new MapElementBuilderImpl(dimensionCalculator);
 
@@ -50,8 +46,9 @@ public class Application {
         MapGenerator mapGenerator = new MapGeneratorImpl(mapElementsGenerator, mapElementPlacer, coordinateCalculator);
 
         MapFileWriter mapFileWriter = new MapFileWriterImpl();
-
-        createAndWriteMaps(3, mapGenerator, mapConfig, mapFileWriter);
+        if (validator.validate(mapConfig)){
+            createAndWriteMaps(3, mapGenerator, mapConfig, mapFileWriter);
+        }
 
         System.out.println("Mars maps successfully generated.");
     }

@@ -49,6 +49,15 @@ public Map generate(MapConfiguration mapConfig) {
         mapElementPlacer.placeElement(mapElement, mapToFill, randoCoordinate);
     }
 
+//    for (int i = 0; i < mapElements.size(); i++) {
+//        Coordinate randoCoordinate = coordinateCalculator.getRandomCoordinate(mapElements.get(i).getDimension());
+//        if (mapElementPlacer.canPlaceElement(mapElements.get(i), mapToFill, randoCoordinate)){
+//            mapElementPlacer.placeElement(mapElements.get(i), mapToFill, randoCoordinate);
+//        } else {
+//            i--;
+//        }
+//    }
+
     return new Map(mapToFill);
 }
 

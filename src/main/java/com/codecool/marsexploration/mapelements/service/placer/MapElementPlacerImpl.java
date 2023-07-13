@@ -28,7 +28,7 @@ public class MapElementPlacerImpl implements MapElementPlacer {
             return getNumberOfSymbolsFromRepresentation(element) < emptySpaces;
         }
 
-        return checkForPreferredSymbolAndEmptySpaceAvailability(element, coordinate, map, element.getPreferredLocationSymbol());
+        return checkForPreferredSymbolAndEmptySpaceAvailability(element, coordinate, map);
     }
 
 
@@ -41,16 +41,21 @@ public class MapElementPlacerImpl implements MapElementPlacer {
         return true;
     }
 
-    private boolean checkForPreferredSymbolAndEmptySpaceAvailability(MapElement element, Coordinate coordinate, String[][] map, String preferredSymbol) {
+    private boolean checkForPreferredSymbolAndEmptySpaceAvailability(MapElement element, Coordinate coordinate, String[][] map) {
         Iterable<Coordinate> coordinates = List.of(
                 new Coordinate(coordinate.x(), coordinate.y())
         );
 
-        List<Coordinate> elementShape = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinates, element.getDimension());
+        Iterable<Coordinate> elementShape = coordinateCalculator.getAdjacentCoordinates(coordinates, element.getDimension());
+        System.out.println(coordinate);
+        for (Coordinate coord : elementShape) {
+            System.out.println(map[coord.x()][coord.y()]);
+        }
+
 
         if (map[coordinate.x()][coordinate.y()].equals("")) {
-            for (Coordinate coord : elementShape) {
-                if (map[coord.x()][coord.y()].equals(preferredSymbol)) {
+            for (Coordinate coord : elementShape) {;
+                if (map[coord.x()][coord.y()].equals(element.getPreferredLocationSymbol())) {
                     return true;
                 }
             }
@@ -65,14 +70,15 @@ public class MapElementPlacerImpl implements MapElementPlacer {
         int startY = coordinate.y();
         int dimension = element.getDimension();
 
-        System.out.println(element.getName() + coordinate);
-
-        for (int i = 0; i < dimension; i++) {
-            for (int j = 0; j < dimension; j++) {
-                map[startY + i][startX + j] = elementRepresentation[i][j];
+        if (element.getPreferredLocationSymbol() == null){
+            for (int i = 0; i < dimension; i++) {
+                for (int j = 0; j < dimension; j++) {
+                    map[startY + i][startX + j] = elementRepresentation[i][j];
+                }
             }
+        } else {
+            map[coordinate.x()][coordinate.y()] = elementRepresentation[0][0];
         }
-
     }
 
     private int getNumberOfSymbolsFromRepresentation(MapElement element) {
