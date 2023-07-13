@@ -41,11 +41,10 @@ public Map generate(MapConfiguration mapConfig) {
     List<MapElement> mapElements = (List<MapElement>) mapElementsGenerator.createAll(mapConfig);
     for (MapElement mapElement : mapElements) {
         Coordinate randoCoordinate = coordinateCalculator.getRandomCoordinate(mapElement.getDimension());
-        System.out.println("----" + mapElement.getDimension());
-//        while(!mapElementPlacer.canPlaceElement(mapElement, mapToFill, randoCoordinate)) {
-//            System.out.println("Trying config...");
-//            randoCoordinate = coordinateCalculator.getRandomCoordinate(mapElement.getDimension());
-//        }
+        while(!mapElementPlacer.canPlaceElement(mapElement, mapToFill, randoCoordinate)) {
+            System.out.println("Trying config...");
+            randoCoordinate = coordinateCalculator.getRandomCoordinate(mapElement.getDimension());
+        }
         mapElementPlacer.placeElement(mapElement, mapToFill, randoCoordinate);
     }
 

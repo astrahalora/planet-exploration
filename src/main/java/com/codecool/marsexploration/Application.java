@@ -111,7 +111,7 @@ public class Application {
                 pitSymbol
         );
 
-        List<MapElementConfiguration> elementsCfg = List.of(mountainsCfg, pitsCfg, mineralsCfg, pocketsOfWaterCfg);
+        List<MapElementConfiguration> elementsCfg = List.of(pitsCfg, mountainsCfg, mineralsCfg, pocketsOfWaterCfg);
         return new MapConfiguration(1000, 0.5, elementsCfg);
     }
 
