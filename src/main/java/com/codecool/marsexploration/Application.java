@@ -51,16 +51,15 @@ public class Application {
 
         MapFileWriter mapFileWriter = new MapFileWriterImpl();
 
-        String workDir = "src/main/resources/exploration-test.map";
-
-        mapFileWriter.writeMapFile(mapGenerator.generate(mapConfig), workDir);
-
-        createAndWriteMaps(3, mapGenerator, mapConfig);
+        createAndWriteMaps(3, mapGenerator, mapConfig, mapFileWriter);
 
         System.out.println("Mars maps successfully generated.");
     }
 
-    private static void createAndWriteMaps(int count, MapGenerator mapGenerator, MapConfiguration mapConfig) {
+    private static void createAndWriteMaps(int count, MapGenerator mapGenerator, MapConfiguration mapConfig, MapFileWriter mapFileWriter) {
+        for (int i = 0; i < count; i++) {
+            mapFileWriter.writeMapFile(mapGenerator.generate(mapConfig), "src/main/resources/exploration-map-" + i + ".map");
+        }
     }
 
     private static MapConfiguration getConfiguration() {
