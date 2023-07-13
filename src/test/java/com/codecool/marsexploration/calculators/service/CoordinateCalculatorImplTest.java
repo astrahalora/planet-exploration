@@ -19,7 +19,7 @@ public class CoordinateCalculatorImplTest {
     @BeforeEach
     public void setUp() {
         mapConfiguration = mock(MapConfiguration.class);
-        when(mapConfiguration.mapSize()).thenReturn(10);
+        when(mapConfiguration.mapSize()).thenReturn(1000);
         coordinateCalculator = new CoordinateCalculatorImpl(mapConfiguration);
     }
 
@@ -29,8 +29,8 @@ public class CoordinateCalculatorImplTest {
         Coordinate randomCoordinate = coordinateCalculator.getRandomCoordinate(dimension);
 
         // Verificați dacă coordonata generată se încadrează în limitele hărții configurate
-        assertEquals(true, randomCoordinate.x() >= 0 && randomCoordinate.x() <= 10 - dimension);
-        assertEquals(true, randomCoordinate.y() >= 0 && randomCoordinate.y() <= 10 - dimension);
+        assertEquals(true, randomCoordinate.x() >= 0 && randomCoordinate.x() <= 32 - dimension);
+        assertEquals(true, randomCoordinate.y() >= 0 && randomCoordinate.y() <= 32 - dimension);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class CoordinateCalculatorImplTest {
 
         Iterable<Coordinate> adjacentCoordinates = coordinateCalculator.getAdjacentCoordinates(coordinate, dimension);
 
-        assertEquals(9, getCoordinateListSize(adjacentCoordinates));
+        assertEquals(4, getCoordinateListSize(adjacentCoordinates));
     }
 
     @Test
@@ -63,7 +63,7 @@ public class CoordinateCalculatorImplTest {
 
         Iterable<Coordinate> adjacentCoordinates = coordinateCalculator.getAdjacentCoordinates(coordinates, dimension);
         System.out.println(getCoordinateListSize(adjacentCoordinates));
-        assertEquals(16, getCoordinateListSize(adjacentCoordinates));
+        assertEquals(9, getCoordinateListSize(adjacentCoordinates));
     }
 
     private int getCoordinateListSize(Iterable<Coordinate> coordinates) {

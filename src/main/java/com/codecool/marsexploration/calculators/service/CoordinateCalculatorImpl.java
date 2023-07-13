@@ -17,9 +17,9 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator{
     @Override
     public Coordinate getRandomCoordinate(int dimension) {
         Random random = new Random();
-        Coordinate coordinate = new Coordinate(random.nextInt(33 - dimension),
-                                random.nextInt(33 - dimension));
-        return coordinate;
+        int mapSize = (int) Math.ceil((Math.sqrt(mapConfiguration.mapSize())));
+        return new Coordinate(random.nextInt(mapSize - dimension),
+                                random.nextInt(mapSize - dimension));
     }
 
     @Override
@@ -27,8 +27,9 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator{
             if(dimension > 1){
                 int xStart = coordinate.x();
                 int yStart = coordinate.y();
-                int xFinal = xStart + dimension;
-                int yFinal = yStart + dimension;
+                int xFinal = xStart + (dimension -1);
+                int yFinal = yStart + (dimension -1);
+                System.out.println(getCoordinates(xStart, yStart, xFinal, yFinal));
                 return getCoordinates(xStart, yStart, xFinal, yFinal);
             }
             return Collections.singleton(coordinate);
@@ -43,8 +44,8 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator{
         Coordinate firstCoordinate = elementOccupiedSpace.get(0);
         int xStart = firstCoordinate.x() - 1;
         int yStart = firstCoordinate.y() - 1;
-        int xFinal = xStart + dimension + 2;
-        int yFinal = yStart + dimension + 2;
+        int xFinal = xStart + dimension  + 1;
+        int yFinal = yStart + dimension  + 1;
         return getCoordinates(xStart, yStart, xFinal, yFinal);
     }
 

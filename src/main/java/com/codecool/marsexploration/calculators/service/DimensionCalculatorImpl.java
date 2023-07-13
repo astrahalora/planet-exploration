@@ -6,6 +6,6 @@ public class DimensionCalculatorImpl implements DimensionCalculator{
         if(dimensionGrowth == 0){
             return size;
         }
-        return(int) Math.sqrt(size) + 1 +dimensionGrowth;
+        return(int) Math.sqrt(size) + 1 + dimensionGrowth;
     }
 }
