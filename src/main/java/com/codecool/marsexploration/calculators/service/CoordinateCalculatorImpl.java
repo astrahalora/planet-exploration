@@ -18,10 +18,17 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator{
     public Coordinate getRandomCoordinate(int dimension) {
         Random random = new Random();
         int mapSize = (int) Math.ceil((Math.sqrt(mapConfiguration.mapSize())));
-        return new Coordinate(random.nextInt(1,mapSize - dimension),
-                                random.nextInt(1,mapSize - dimension));
+        return new Coordinate(random.nextInt(mapSize - dimension),
+                                random.nextInt(mapSize - dimension));
     }
-
+//    public Coordinate getRandomCoordinate(int dimension) {
+//        Random random = new Random();
+//        int mapSize = (int) Math.ceil(Math.sqrt(mapConfiguration.mapSize()));
+//        int maxCoordinate = mapSize - dimension;
+//        int x = random.nextInt(maxCoordinate) + 1;
+//        int y = random.nextInt(maxCoordinate) + 1;
+//        return new Coordinate(x, y);
+//    }
     @Override
         public Iterable<Coordinate> getAdjacentCoordinates(Coordinate coordinate, int dimension) {
             if(dimension > 1){
