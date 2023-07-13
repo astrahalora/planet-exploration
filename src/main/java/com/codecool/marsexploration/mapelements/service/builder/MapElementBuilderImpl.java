@@ -22,14 +22,14 @@ public class MapElementBuilderImpl implements MapElementBuilder{
             return new MapElement(
                     populateSpace(size, symbol, elementSpace),
                     name,
-                    dimensionGrowth
+                    squareSide
             );
         }
 
         return new MapElement(
                 populateSpace(size, symbol, elementSpace),
                 name,
-                dimensionGrowth,
+                squareSide,
                 preferredLocationSymbol
         );
     }
