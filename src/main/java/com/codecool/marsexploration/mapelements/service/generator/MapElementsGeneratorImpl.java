@@ -28,8 +28,7 @@ public class MapElementsGeneratorImpl implements MapElementsGenerator{
                             mapElementConfiguration.elementToSizes().get(i).size(),
                             mapElementConfiguration.symbol(),
                             mapElementConfiguration.name(),
-                            dimensionCalculator.calculateDimension(mapElementConfiguration.elementToSizes().get(i).size()
-                                    ,mapElementConfiguration.dimensionGrowth()),
+                            mapElementConfiguration.dimensionGrowth(),
                             mapElementConfiguration.preferredLocationSymbol());
                     mapElementList.add(mapElement);
                 }

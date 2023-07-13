@@ -4,6 +4,7 @@ import com.codecool.marsexploration.calculators.model.Coordinate;
 import com.codecool.marsexploration.calculators.service.CoordinateCalculator;
 import com.codecool.marsexploration.mapelements.model.MapElement;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class MapElementPlacerImpl implements MapElementPlacer {
@@ -61,14 +62,17 @@ public class MapElementPlacerImpl implements MapElementPlacer {
         String[][] elementRepresentation = element.getRepresentation();
         System.out.println(coordinate);
         System.out.println("dimension " + element.getDimension());
-        for (int i = 0; i < elementRepresentation.length; i++) {
-            for (int j = 0; j < elementRepresentation[i].length; j++) {
-                System.out.println("x " + (coordinate.x() + i));
-                System.out.println("y " + (coordinate.y() + j));
-                map[coordinate.x() + i][coordinate.y() + j ] = elementRepresentation[i][j];
-            }
-        }
+
+//        System.out.println("lenght: " + Arrays.deepToString(elementRepresentation));
+//        for (int i = 0; i < elementRepresentation.length; i++) {
+//            for (int j = 0; j < elementRepresentation[i].length; j++) {
+////                System.out.println("x " + );
+//                System.out.println("y " + j);
+//                map[coordinate.x() + i][coordinate.y() + j] = elementRepresentation[i][j];
+//            }
+//        }
 //        System.out.println(Arrays.deepToString(map));
+
     }
     private int getNumberOfSymbolsFromRepresentation(MapElement element){
         int occupiedSpaces = 0;
