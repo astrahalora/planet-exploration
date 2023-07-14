@@ -3,12 +3,8 @@ package com.codecool.marsexploration.output.service;
 import com.codecool.marsexploration.mapelements.model.Map;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class MapFileWriterImpl implements MapFileWriter{
 

@@ -25,7 +25,7 @@ class MapGeneratorImplTest {
     void generateMapFor26Elements_returnsTrue() {
         DimensionCalculator dimensionCalculator = new DimensionCalculatorImpl();
         MapElementBuilder mapElementBuilder = new MapElementBuilderImpl(dimensionCalculator);
-        MapElementsGenerator mapElementsGenerator = new MapElementsGeneratorImpl(mapElementBuilder,dimensionCalculator);
+        MapElementsGenerator mapElementsGenerator = new MapElementsGeneratorImpl(mapElementBuilder);
         CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(getConfiguration());
         MapElementPlacer mapElementPlacer = new MapElementPlacerImpl(coordinateCalculator);
 

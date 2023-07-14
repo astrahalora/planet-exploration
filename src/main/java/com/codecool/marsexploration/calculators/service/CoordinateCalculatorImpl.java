@@ -14,6 +14,7 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator{
     public CoordinateCalculatorImpl(MapConfiguration mapConfiguration){
         this.mapConfiguration = mapConfiguration;
     }
+
     @Override
     public Coordinate getRandomCoordinate(int dimension) {
         Random random = new Random();
@@ -21,14 +22,7 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator{
         return new Coordinate(random.nextInt(1, mapSize - dimension),
                                 random.nextInt(1, mapSize - dimension));
     }
-//    public Coordinate getRandomCoordinate(int dimension) {
-//        Random random = new Random();
-//        int mapSize = (int) Math.ceil(Math.sqrt(mapConfiguration.mapSize()));
-//        int maxCoordinate = mapSize - dimension;
-//        int x = random.nextInt(maxCoordinate) + 1;
-//        int y = random.nextInt(maxCoordinate) + 1;
-//        return new Coordinate(x, y);
-//    }
+
     @Override
         public Iterable<Coordinate> getAdjacentCoordinates(Coordinate coordinate, int dimension) {
             if(dimension > 1){
@@ -36,7 +30,7 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator{
                 int yStart = coordinate.y();
                 int xFinal = xStart + (dimension -1);
                 int yFinal = yStart + (dimension -1);
-                System.out.println(getCoordinates(xStart, yStart, xFinal, yFinal));
+
                 return getCoordinates(xStart, yStart, xFinal, yFinal);
             }
             return Collections.singleton(coordinate);
