@@ -20,7 +20,7 @@ class MapElementsGeneratorImplTest {
     void createAll_returns26MapElements() {
         DimensionCalculator dimensionCalculator = new DimensionCalculatorImpl();
         MapElementBuilder mapElementBuilder = new MapElementBuilderImpl(dimensionCalculator);
-        MapElementsGenerator mapElementsGenerator = new MapElementsGeneratorImpl(mapElementBuilder,dimensionCalculator);
+        MapElementsGenerator mapElementsGenerator = new MapElementsGeneratorImpl(mapElementBuilder);
 
         List<MapElement> mapElements = (List<MapElement>) mapElementsGenerator.createAll(getConfiguration());
 

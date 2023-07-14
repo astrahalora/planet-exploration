@@ -4,7 +4,6 @@ import com.codecool.marsexploration.calculators.model.Coordinate;
 import com.codecool.marsexploration.calculators.service.CoordinateCalculator;
 import com.codecool.marsexploration.mapelements.model.MapElement;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class MapElementPlacerImpl implements MapElementPlacer {
@@ -15,7 +14,6 @@ public class MapElementPlacerImpl implements MapElementPlacer {
     }
 
     public boolean canPlaceElement(MapElement element, String[][] map, Coordinate coordinate) {
-//        System.out.println(element.getName() + coordinateCalculator.getAdjacentCoordinates(coordinate, element.getDimension()));
 
         if (element.getPreferredLocationSymbol() == null) {
             List<Coordinate> elementShape = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinate, element.getDimension());
@@ -31,28 +29,12 @@ public class MapElementPlacerImpl implements MapElementPlacer {
         return checkForPreferredSymbolAndEmptySpaceAvailability(element, coordinate, map);
     }
 
-
-    private boolean checkForEmptySpaces(List<Coordinate> elementShape, String[][] map) {
-        for (Coordinate coordinate : elementShape) {
-            if (!map[coordinate.x()][coordinate.y()].equals("")) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     private boolean checkForPreferredSymbolAndEmptySpaceAvailability(MapElement element, Coordinate coordinate, String[][] map) {
         Iterable<Coordinate> coordinates = List.of(
                 new Coordinate(coordinate.x(), coordinate.y())
         );
 
         Iterable<Coordinate> elementShape = coordinateCalculator.getAdjacentCoordinates(coordinates, element.getDimension());
-        System.out.println(coordinate);
-        for (Coordinate coord : elementShape) {
-            System.out.println(map[coord.x()][coord.y()]);
-        }
-
-
         if (map[coordinate.x()][coordinate.y()].equals("")) {
             for (Coordinate coord : elementShape) {;
                 if (map[coord.x()][coord.y()].equals(element.getPreferredLocationSymbol())) {

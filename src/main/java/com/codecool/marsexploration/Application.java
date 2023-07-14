@@ -1,22 +1,17 @@
 package com.codecool.marsexploration;
 
-import com.codecool.marsexploration.calculators.model.Coordinate;
 import com.codecool.marsexploration.calculators.service.*;
 import com.codecool.marsexploration.configuration.model.*;
 import com.codecool.marsexploration.configuration.service.*;
-import com.codecool.marsexploration.mapelements.model.Map;
 import com.codecool.marsexploration.mapelements.service.builder.*;
 import com.codecool.marsexploration.mapelements.service.generator.*;
 import com.codecool.marsexploration.mapelements.service.placer.*;
 import com.codecool.marsexploration.output.service.MapFileWriter;
 import com.codecool.marsexploration.output.service.MapFileWriterImpl;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Application {
-    // You can change this to any directory you like
-    private static final String WorkDir = "src/main";
 
     public static void main(String[] args) {
         System.out.println("Mars Exploration Sprint 1");
@@ -28,19 +23,10 @@ public class Application {
         DimensionCalculator dimensionCalculator = new DimensionCalculatorImpl();
         CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapConfig);
 
-
-        int rows = mapConfig.mapSize();
-        int columns = mapConfig.mapSize();
-        String[][] firstMap = createEmptyStringArray(rows, columns);
-        Map map = new Map(firstMap);
-
-
         MapElementBuilder mapElementFactory = new MapElementBuilderImpl(dimensionCalculator);
 
-        MapElementsGenerator mapElementsGenerator = new MapElementsGeneratorImpl(mapElementFactory,dimensionCalculator);
-        System.out.println(mapElementsGenerator.createAll(mapConfig));
+        MapElementsGenerator mapElementsGenerator = new MapElementsGeneratorImpl(mapElementFactory);
 
-        MapConfigurationValidator mapConfigValidator = new MapConfigurationValidatorImpl();
         MapElementPlacer mapElementPlacer = new MapElementPlacerImpl(coordinateCalculator);
 
         MapGenerator mapGenerator = new MapGeneratorImpl(mapElementsGenerator, mapElementPlacer, coordinateCalculator);
@@ -109,18 +95,6 @@ public class Application {
 
         List<MapElementConfiguration> elementsCfg = List.of(pitsCfg, mountainsCfg, mineralsCfg, pocketsOfWaterCfg);
         return new MapConfiguration(1000, 0.5, elementsCfg);
-    }
-
-    public static String[][] createEmptyStringArray(int rows, int columns) {
-        String[][] array = new String[rows][columns];
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                array[i][j] = "";
-            }
-        }
-
-        return array;
     }
 }
 

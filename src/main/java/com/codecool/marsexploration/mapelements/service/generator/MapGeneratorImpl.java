@@ -20,21 +20,6 @@ public class MapGeneratorImpl implements MapGenerator{
         this.coordinateCalculator = coordinateCalculator;
     }
 
-//    public Map generate(MapConfiguration mapConfig) {
-//        String[][] emptyMap = createEmptyStringArray(mapConfig.mapSize(), mapConfig.mapSize());
-//        List<MapElement> mapElements = (List<MapElement>) mapElementsGenerator.createAll(mapConfig);
-//        for (MapElement mapElement : mapElements) {
-//            Coordinate randoCoordinate = coordinateCalculator.getRandomCoordinate(mapElement.getDimension());
-//
-//            if(mapElementPlacer.canPlaceElement(mapElement, emptyMap, randoCoordinate)) {
-//                mapElementPlacer.placeElement(mapElement, emptyMap, randoCoordinate);
-//            } else {
-//
-//            }
-//        }
-//
-//        return null;
-//    }
 public Map generate(MapConfiguration mapConfig) {
     int mapSize = (int) Math.ceil((Math.sqrt(mapConfig.mapSize())));
     String[][] mapToFill = createEmptyStringArray(mapSize, mapSize);
@@ -47,16 +32,8 @@ public Map generate(MapConfiguration mapConfig) {
             randoCoordinate = coordinateCalculator.getRandomCoordinate(mapElement.getDimension());
         }
         mapElementPlacer.placeElement(mapElement, mapToFill, randoCoordinate);
+        System.out.println(mapElement.getName() + " placed");
     }
-
-//    for (int i = 0; i < mapElements.size(); i++) {
-//        Coordinate randoCoordinate = coordinateCalculator.getRandomCoordinate(mapElements.get(i).getDimension());
-//        if (mapElementPlacer.canPlaceElement(mapElements.get(i), mapToFill, randoCoordinate)){
-//            mapElementPlacer.placeElement(mapElements.get(i), mapToFill, randoCoordinate);
-//        } else {
-//            i--;
-//        }
-//    }
 
     return new Map(mapToFill);
 }
