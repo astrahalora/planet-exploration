@@ -1,11 +1,11 @@
 # About
 
-Desktop and tablet Map Generator Application with React frontend and Java backend. 
+Desktop and tablet Map Generator Application with React frontend and Java backend. Just click a button and you get a map!
 
 - custom designed images
 - functional components
 - java controller api for spring boot application
-- map and map element configuration, validation, positioning
+- map and map element configuration, generation, validation, positioning
 - map writing to .map file and display representation
 - unit testing
 
@@ -13,7 +13,7 @@ Desktop and tablet Map Generator Application with React frontend and Java backen
 
 # Technologies & Tools
 
-- JavaScript
+- JavaScript (lightweight interpreted programming language)
 - React (frontend JavaScript library for building user interfaces based on components)
 - Java (high-level, class-based, object-oriented programming language)
 - Maven (build automation tool)
@@ -21,6 +21,21 @@ Desktop and tablet Map Generator Application with React frontend and Java backen
 - HTML (HyperText Markup Language)
 - CSS (for styling)
 - SCSS (CSS preprocessor)
+
+# Features
+
+- predefined resource types to get added to the map according to placement rules
+- generate map button to create a new map
+
+![Resources](src/main/frontend/src/components/img/resources.webp)
+
+Map to populate with resources.
+
+![Map](src/main/frontend/src/components/img/map.webp)
+
+# Tablet View
+
+![Main Page Tablet](src/main/frontend/src/components/img/mainpagelong.webp)
 
 # Setup
 
