@@ -46,11 +46,11 @@ export default function Home() {
             const response = await fetch("http://localhost:8080/api/map");
             const data = await response.json();
             const usableData = data["stringMap"]
-                .replaceAll("#", brown_square_mountain+ ",")
+                .replaceAll("#", brown_square_mountain + ",")
                 .replaceAll("&", gold_square_pit + ",")
-                .replaceAll("%", gold_square_mineral+ ",")
-                .replaceAll("*", blue_square_water+ ",")
-                .replaceAll("-", empty_space+ ",")
+                .replaceAll("%", gold_square_mineral + ",")
+                .replaceAll("*", blue_square_water + ",")
+                .replaceAll("-", empty_space + ",")
                 .split(",");
             const newRandomMap = populate2DArray(32, 32, usableData);
             setMapRepresentation(newRandomMap);
@@ -65,7 +65,9 @@ export default function Home() {
             <Options mountain={brown_square_mountain}
                      pit={gold_square_pit}
                      mineral={gold_square_mineral}
-                     water={blue_square_water} getMap={() => getRandomMapRepresentation()}/>
+                     water={blue_square_water} 
+                     getMap={() => getRandomMapRepresentation()}
+            />
         </div>
     );
 }

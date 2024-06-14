@@ -1,6 +1,6 @@
 import full_map from "./img/full_map.jpg";
 
-export default function Map({mapRepresentation}) {
+export default function Map({ mapRepresentation }) {
     return <div className="map">
         <img src={full_map} alt="Map" />
         <div className="map-elements">

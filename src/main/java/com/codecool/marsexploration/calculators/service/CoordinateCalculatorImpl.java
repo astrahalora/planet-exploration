@@ -22,7 +22,7 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator{
         Random random = new Random();
         int mapSize = (int) Math.ceil((Math.sqrt(mapConfiguration.mapSize())));
         return new Coordinate(random.nextInt(1, mapSize - dimension),
-                                random.nextInt(1, mapSize - dimension));
+                              random.nextInt(1, mapSize - dimension));
     }
 
     @Override
@@ -56,7 +56,7 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator{
         return IntStream.rangeClosed(xStart, xFinal)
                 .boxed()
                 .flatMap(x -> IntStream.rangeClosed(yStart, yFinal)
-                        .mapToObj(y -> new Coordinate(x, y)))
+                .mapToObj(y -> new Coordinate(x, y)))
                 .collect(Collectors.toList());
     }
 }
