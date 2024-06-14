@@ -39,6 +39,13 @@ Map to populate with resources.
 
 # Setup
 
+Must haves on your machine:
+JDK 17+ 
+Apache Maven
+
+Recommended IDEs:
+Visual Studio Code or IntelliJ IDEA
+
 ## Server side
 
 ### Run application
