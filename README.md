@@ -1,6 +1,26 @@
 # About
 
+Desktop and tablet Map Generator Application with React frontend and Java backend. 
+
+- custom designed images
+- functional components
+- java controller api for spring boot application
+- map and map element configuration, validation, positioning
+- map writing to .map file and display representation
+- unit testing
+
 ![Main Page](src/main/frontend/src/components/img/mainpage.webp)
+
+# Technologies & Tools
+
+- JavaScript
+- React (frontend JavaScript library for building user interfaces based on components)
+- Java (high-level, class-based, object-oriented programming language)
+- Maven (build automation tool)
+- Spring Boot (Java framework)
+- HTML (HyperText Markup Language)
+- CSS (for styling)
+- SCSS (CSS preprocessor)
 
 # Setup
 
