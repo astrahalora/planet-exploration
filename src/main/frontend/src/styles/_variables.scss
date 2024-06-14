@@ -24,3 +24,7 @@ $full-width: 100%;
 @mixin text-align-center {
   text-align: center;
 }
+
+@mixin flex-direction-column {
+  flex-direction: column;
+}
