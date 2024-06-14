@@ -1,5 +1,7 @@
 # About
 
+![Main Page](src/main/frontend/src/components/img/mainpage.webp)
+
 # Setup
 
 ## Server side
