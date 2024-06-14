@@ -5,10 +5,10 @@ import com.codecool.marsexploration.configuration.model.MapConfiguration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -28,9 +28,8 @@ public class CoordinateCalculatorImplTest {
         int dimension = 3;
         Coordinate randomCoordinate = coordinateCalculator.getRandomCoordinate(dimension);
 
-        // Verificați dacă coordonata generată se încadrează în limitele hărții configurate
-        assertEquals(true, randomCoordinate.x() >= 0 && randomCoordinate.x() <= 32 - dimension);
-        assertEquals(true, randomCoordinate.y() >= 0 && randomCoordinate.y() <= 32 - dimension);
+        assertTrue(randomCoordinate.x() >= 0 && randomCoordinate.x() <= 32 - dimension);
+        assertTrue(randomCoordinate.y() >= 0 && randomCoordinate.y() <= 32 - dimension);
     }
 
     @Test

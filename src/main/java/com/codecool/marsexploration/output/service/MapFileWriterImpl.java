@@ -1,6 +1,6 @@
 package com.codecool.marsexploration.output.service;
 
-import com.codecool.marsexploration.mapelements.model.Map;
+import com.codecool.marsexploration.mapelements.model.MapModel;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class MapFileWriterImpl implements MapFileWriter{
 
-    public void writeMapFile(Map map, String file) {
+    public void writeMapFile(MapModel map, String file) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             String[][] representation = map.getRepresentation();
             for (String[] row : representation) {

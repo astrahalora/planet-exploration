@@ -10,7 +10,6 @@ class DimensionCalculatorImplTest {
     void testCasesDimension20AndGrowth3_returns8(){
         assertEquals(8,calculator.calculateDimension(20,3));
     }
-
     @Test
     void testCasesDimension20AndGrowth3_notReturns8(){
         assertNotEquals(9,calculator.calculateDimension(20,3));

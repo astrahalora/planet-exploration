@@ -1,0 +1,82 @@
+.home {
+  width: 100vw;
+  margin-top: 5em;
+  @include flex;
+  @include justify-content-center;
+  @include align-items-center;
+
+  .map, .options {
+    padding: 3em 1em;
+    width: 45%;
+    @include flex;
+    @include justify-content-center;
+    @include text-align-center;
+
+    img {
+      width: 730px;
+    }
+  }
+
+  .map {
+    position: relative;
+
+    .map-elements {
+      @include flex;
+      @include justify-content-center;
+      flex-wrap: wrap;
+      top: 80px;
+      padding: 0;
+      width: 660px;
+      height: 660px;
+      border: 3px dotted $map-color;
+      position: absolute;
+
+      div {
+        width: 20px;
+        height: 20px;
+        padding: 0.5px;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+#generate-map-btn {
+  background-color: $nav-color;
+  font-size: 1rem;
+  padding: 1em;
+
+  &:hover {
+    background-color: rgb(70, 48, 27);
+  }
+}
+
+.options {
+  @include flex;
+  flex-direction: column;
+
+  .descriptions {
+    @include flex;
+    @include justify-content-center;
+    flex-wrap: wrap;
+
+    .resource {
+      padding: 1em;
+      img {
+        max-width: 130px;
+      }
+    }
+
+  }
+
+  .action-btns {
+    padding: 2em;
+  }
+
+}
+
+
+

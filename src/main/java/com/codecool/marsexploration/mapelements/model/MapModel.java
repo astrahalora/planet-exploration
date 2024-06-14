@@ -1,11 +1,11 @@
 package com.codecool.marsexploration.mapelements.model;
 
-public class Map {
+public class MapModel {
     private String[][] representation;
 
     private boolean successfullyGenerated;
 
-    public Map(String[][] representation) {
+    public MapModel(String[][] representation) {
         this.representation = representation;
     }
 
@@ -24,7 +24,7 @@ public class Map {
                 if (!element.isEmpty()) {
                     stringBuilder.append(element);
                 } else {
-                    stringBuilder.append(" ");
+                    stringBuilder.append("-");
                 }
             }
         }

@@ -5,7 +5,6 @@ import com.codecool.marsexploration.calculators.service.CoordinateCalculator;
 import com.codecool.marsexploration.calculators.service.CoordinateCalculatorImpl;
 import com.codecool.marsexploration.calculators.service.DimensionCalculator;
 import com.codecool.marsexploration.calculators.service.DimensionCalculatorImpl;
-import com.codecool.marsexploration.configuration.model.ElementToSize;
 import com.codecool.marsexploration.configuration.model.MapConfiguration;
 import com.codecool.marsexploration.configuration.model.MapElementConfiguration;
 import com.codecool.marsexploration.mapelements.model.MapElement;
@@ -55,11 +54,6 @@ class MapElementPlacerImplTest {
 
 
     private static MapConfiguration getConfiguration() {
-        final String mountainSymbol = "#";
-        final String pitSymbol = "&";
-        final String mineralSymbol = "%";
-        final String waterSymbol = "*";
-
         List<MapElementConfiguration> elementsCfg = List.of();
         return new MapConfiguration(1000, 0.5, elementsCfg);
     }

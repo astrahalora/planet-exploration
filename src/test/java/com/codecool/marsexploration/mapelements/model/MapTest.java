@@ -15,7 +15,7 @@ class MapTest {
                         {"2", "0"}, {"2", "1"}, {"2", "2"}, {"2", "3"},
                         {"3", "0"}, {"3", "1"}, {"3", "2"}, {"3", "3"}
                 };
-        Map map = new Map(arr);
+        MapModel map = new MapModel(arr);
 
         assertEquals("00010203101112132021222330313233", map.toString());
     }

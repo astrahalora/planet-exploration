@@ -7,7 +7,7 @@ import com.codecool.marsexploration.calculators.service.DimensionCalculatorImpl;
 import com.codecool.marsexploration.configuration.model.ElementToSize;
 import com.codecool.marsexploration.configuration.model.MapConfiguration;
 import com.codecool.marsexploration.configuration.model.MapElementConfiguration;
-import com.codecool.marsexploration.mapelements.model.Map;
+import com.codecool.marsexploration.mapelements.model.MapModel;
 import com.codecool.marsexploration.mapelements.service.builder.MapElementBuilder;
 import com.codecool.marsexploration.mapelements.service.builder.MapElementBuilderImpl;
 import com.codecool.marsexploration.mapelements.service.placer.MapElementPlacer;
@@ -16,8 +16,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class MapGeneratorImplTest {
 
@@ -31,7 +29,7 @@ class MapGeneratorImplTest {
 
         MapGenerator mapGenerator = new MapGeneratorImpl(mapElementsGenerator, mapElementPlacer, coordinateCalculator);
 
-        Map myMap = mapGenerator.generate(getConfiguration());
+        MapModel myMap = mapGenerator.generate(getConfiguration());
         System.out.println(Arrays.deepToString(myMap.getRepresentation()));
     }
 

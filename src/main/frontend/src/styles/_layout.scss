@@ -1,0 +1,16 @@
+html, body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: 'Saira', 'Courier New', Courier, monospace;
+}
+
+nav {
+  @include flex;
+  @include justify-content-center;
+  color: $nav-text-color;
+  background-color: $nav-color;
+  padding: 0.6em 2em;
+  position: fixed;
+  top: 0;
+  width: $full-width;
+}

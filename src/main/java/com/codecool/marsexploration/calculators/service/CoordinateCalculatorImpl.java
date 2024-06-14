@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class CoordinateCalculatorImpl implements CoordinateCalculator{
     private final MapConfiguration mapConfiguration;
@@ -51,14 +53,10 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator{
     }
 
     private Iterable<Coordinate> getCoordinates(int xStart, int yStart, int xFinal, int yFinal) {
-        ArrayList<Coordinate> elementAndSpaceOccupiedSpace = new ArrayList<>();
-        for(int i = xStart; i<= xFinal; i++){
-            for(int j = yStart; j<=yFinal; j++){
-                Coordinate currentCoordinate = new Coordinate(i, j);
-                elementAndSpaceOccupiedSpace.add(currentCoordinate);
-            }
-        }
-        return elementAndSpaceOccupiedSpace;
+        return IntStream.rangeClosed(xStart, xFinal)
+                .boxed()
+                .flatMap(x -> IntStream.rangeClosed(yStart, yFinal)
+                        .mapToObj(y -> new Coordinate(x, y)))
+                .collect(Collectors.toList());
     }
-
 }

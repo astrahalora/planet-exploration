@@ -1,9 +1,10 @@
 package com.codecool.marsexploration.mapelements.service.generator;
 
 import com.codecool.marsexploration.configuration.model.MapConfiguration;
-import com.codecool.marsexploration.mapelements.model.Map;
+import com.codecool.marsexploration.mapelements.model.MapModel;
 
 
 public interface MapGenerator {
-    Map generate(MapConfiguration mapConfig);
+    MapModel generate(MapConfiguration mapConfig);
+    String[][] createEmptyMapRepresentation(int rows, int columns);
 }

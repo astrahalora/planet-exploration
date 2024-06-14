@@ -2,11 +2,9 @@ package com.codecool.marsexploration.mapelements.service.builder;
 
 import com.codecool.marsexploration.calculators.service.DimensionCalculator;
 import com.codecool.marsexploration.calculators.service.DimensionCalculatorImpl;
-import com.codecool.marsexploration.mapelements.model.Map;
+import com.codecool.marsexploration.mapelements.model.MapModel;
 import com.codecool.marsexploration.mapelements.model.MapElement;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,8 +21,8 @@ class MapElementBuilderImplTest {
         MapElement mapElement = mapElementFactory.build(mountainSize, "#", "mountain", 3, "");
         MapElement mapElement1 = mapElementFactory.build(mineralSize, "%", "mineral", 1, "#");
 
-        assertEquals(mapElement.toString().replaceAll(" ", "").length(), mountainSize);
-        assertEquals(mapElement1.toString().replaceAll(" ", "").length(), mineralSize);
+        assertEquals(mapElement.toString().replaceAll("-", "").length(), mountainSize);
+        assertEquals(mapElement1.toString().replaceAll("-", "").length(), mineralSize);
     }
 
     @Test
@@ -34,7 +32,7 @@ class MapElementBuilderImplTest {
 
         int mountainSize = 20;
 
-        Map mapElement = mapElementFactory.build(mountainSize, "#", "mountain", 3, "");
+        MapModel mapElement = mapElementFactory.build(mountainSize, "#", "mountain", 3, "");
 
         int rowNumber = mapElement.getRepresentation().length;
         int columNumber = mapElement.getRepresentation()[0].length;

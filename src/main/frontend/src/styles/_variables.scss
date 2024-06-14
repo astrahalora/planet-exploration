@@ -1,0 +1,26 @@
+$background-color: rgb(27, 47, 66);
+$text-color: rgb(240, 218, 149);
+$nav-color: rgb(52, 30, 9);
+$map-color: rgb(186, 131, 57);
+$nav-text-color: rgb(255, 199, 162);
+$full-width: 100%;
+
+@mixin flex {
+  display: flex;
+}
+
+@mixin align-items-center {
+  align-items: center;
+}
+
+@mixin justify-content-space-between {
+  justify-content: space-between;
+}
+
+@mixin justify-content-center {
+  justify-content: center;
+}
+
+@mixin text-align-center {
+  text-align: center;
+}

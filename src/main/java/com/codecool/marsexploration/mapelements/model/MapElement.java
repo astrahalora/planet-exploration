@@ -1,6 +1,6 @@
 package com.codecool.marsexploration.mapelements.model;
 
-public class MapElement extends Map {
+public class MapElement extends MapModel {
     private String[][] representation;
     private String name;
     private int dimension;
