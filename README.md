@@ -1,6 +1,6 @@
 # About
 
-Desktop and tablet Map Generator Application with React frontend and Java backend. Just click a button and you get a map!
+Desktop and tablet Map Generator Application with React frontend and Java Spring Boot backend. Just click a button and you get a map!
 
 - custom designed images
 - functional components
@@ -40,6 +40,7 @@ Map to populate with resources.
 # Setup
 
 Must haves on your machine:
+Node.js
 JDK 17+ 
 Apache Maven
 
